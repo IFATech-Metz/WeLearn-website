@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>test MultiDrag&Drop</title>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <style>
+        #item1,
+        #item2,
+        #item3,
+        #item4 {
+            width: 100px;
+            height: 100px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px 10px 10px 0;
+        }
+        
+        #drop1,
+        #drop2,
+        #drop3,
+        #drop4 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/language.js"></script>
+    <script>
+        $(function() {
+            $("#item1, #item2, #item3, #item4").draggable();
+            $("#drop1, #drop2, #drop3, #drop4").droppable({
+                drop: function(event, ui) {
+                    $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html("Dropped!");
+                }
+            });
+            $("#drop1").droppable({
+                accept: "#item1"
+            });
+            $("#drop2").droppable({
+                accept: "#item2"
+            });
+            $("#drop3").droppable({
+                accept: "#item3"
+            });
+            $("#drop4").droppable({
+                accept: "#item4"
+            });
+        });
+    </script>
+</head>
+
+<body onload="javascript:anglais2()">
+
+    <div id="item1" class="ui-widget-content">
+        <p>Drag me to my target</p>
+    </div>
+
+    <div id="item2" class="ui-widget-content">
+        <p>Drag me to my target</p>
+    </div>
+
+    <div id="item3" class="ui-widget-content">
+        <p>Drag me to my target</p>
+    </div>
+
+    <div id="item4" class="ui-widget-content">
+        <p>Drag me to my target</p>
+    </div>
+
+    <div id="drop1" class="ui-widget-header">
+        <p>Drop here</p>
+    </div>
+
+    <div id="drop2" class="ui-widget-header">
+        <p>Drop here</p>
+    </div>
+
+    <div id="drop3" class="ui-widget-header">
+        <p>Drop here</p>
+    </div>
+
+    <div id="drop4" class="ui-widget-header">
+        <p>Drop here</p>
+    </div>
+
+    <div id="item0">
+        <p>Drop here</p>
+    </div>
+
+    <div id="tmp">
+        <p>Drop here</p>
+    </div>
+</body>
+
+</html>

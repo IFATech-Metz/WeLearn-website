@@ -61,9 +61,11 @@ function setItemsVisible(visible) {
     if (visible) {
         $('#answer1, #answer2, #answer3, #answer4').show();
         $('#drop1, #drop2, #drop3, #drop4').show();
+        $('#recommencer').show();
     } else {
         $('#answer1, #answer2, #answer3, #answer4').hide();
         $('#drop1, #drop2, #drop3, #drop4').hide();
+        $('#recommencer').hide();
     }
 }
 
@@ -115,7 +117,7 @@ function restartQuizz() {
     // les zones de drop redeviennent vierges
     $("#drop1, #drop2, #drop3, #drop4").removeClass("ui-state-highlight");
     // replacement des réponses possibles à leurs emplacement de départ
-    $("#answer1").css({ "left": "10px" });
+    $("#answer1, #answer2, #answer3, #answer4").css({ "left": "0px" , "top":"0px"});
     initDragAndDrop();
 }
 

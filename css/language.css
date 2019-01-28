@@ -62,3 +62,31 @@ li a:hover {
     margin: 16px;
     background-image: url("../img/bandeau.jpg");
 }
+
+
+.ui-widget-content{
+    display: flex; 
+    flex-flow: row wrap; 
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.ui-widget-header{
+    display: flex; 
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#recommencer{
+    display:flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 50%;
+}
+

@@ -1,11 +1,12 @@
-<?php
+
+    <?php
     // quizzFrancais.php - Copyright (c) 2019 Rouquaya MOUSS, Thiery SAMPY
 
      // création d'un nouvel objet
     $myObj = new stdClass();
 
      // simulation d'une requête SQL
-    $myObj->titre = "Trouve le bon machin en francais";
+    $myObj->titre = "Trouve le bon mot en francais";
     $myObj->image = "../img/flagFR.png";
     $myObj->texte1 = "";
     $myObj->texte2 = "";
@@ -24,3 +25,11 @@
      // renvoie de l'objet JSON
     echo $myJSON;
 ?>
+ 
+
+
+
+
+
+
+

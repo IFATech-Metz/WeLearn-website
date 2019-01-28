@@ -5,7 +5,7 @@
     $myObj = new stdClass();
 
      // simulation d'une requête SQL
-    $myObj->titre = "Trouve le bon machin en allemand";
+    $myObj->titre = "Trouve le bon mot en allemand";
     $myObj->image = "../img/flagDE.png";
     $myObj->texte1 = "";
     $myObj->texte2 = "";
