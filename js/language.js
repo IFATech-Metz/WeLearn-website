@@ -11,44 +11,42 @@ const urlAllemand = urlPHP + 'quizzAllemand.php';
 const urlAnglais = urlPHP + 'quizzAnglais.php';
 const urlFrancais = urlPHP + 'quizzFrancais.php';
 
+const isQuizzActive = true;
+const isQuizzInactive = false;
+
 var contenu = null;
 
-function about() {
+function setContenu(quizzActif) {
+    $('#titrePage').html(contenu.titre);
+    if (!quizzActif) {
+        $('#imagePage').html('<p><img src="' + contenu.image + '" /></p>');
+        $('#texte1').html(contenu.texte1);
+        $('#texte2').html(contenu.texte2);
+    }
+}
+
+function displayAboutOrHome(usedURL) {
     setItemsVisible(false);
     setDebugVisible(false);
     setContenuVisible(true);
     // chargement du fichier JSON en provenance de urlAbout dans une balise tmp invisible
-    $('#tmp').load(urlAbout, function(response, status, xhr) {
+    $('#tmp').load(usedURL, function(response, status, xhr) {
         if (status != "error") {
             // mémorisation du JSON dans la variable contenu
             contenu = JSON.parse($('#tmp').html());
-            $('#contenu').html(contenu.titre + '<br/>' +
-                contenu.texte1 + '<br/>' +
-                contenu.texte2 + '<br/>' +
-                '<p><img src="' + contenu.image + '" alt="" /></p>');
+            setContenu(isQuizzInactive);
         } else {
             $('#debug').html('Une erreur est survenue : <b>' + xhr.status + '</b> ' + xhr.statusText);
         }
     });
 }
 
+function about() {
+    displayAboutOrHome(urlAbout);
+}
+
 function home() {
-    setItemsVisible(false);
-    setDebugVisible(false);
-    setContenuVisible(true);
-    // chargement du fichier JSON en provenance de urlHome dans une balise tmp invisible
-    $('#tmp').load(urlHome, function(response, status, xhr) {
-        if (status != "error") {
-            // mémorisation du JSON dans la variable contenu
-            contenu = JSON.parse($('#tmp').html());
-            $('#contenu').html(contenu.titre + '<br/>' +
-                contenu.texte1 + '<br/>' +
-                contenu.texte2 + '<br/>' +
-                '<p><img src="' + contenu.image + '" alt="" /></p>');
-        } else {
-            $('#debug').html('Une erreur est survenue : <b>' + xhr.status + '</b> ' + xhr.statusText);
-        }
-    });
+    displayAboutOrHome(urlHome);
 }
 
 // affichage ou non du contenu en fonction du pamarètre visible
@@ -87,6 +85,7 @@ function setQuizz(currentURL) {
         if (status != "error") {
             // mémorisation du JSON dans la variable contenu
             contenu = JSON.parse($('#tmp').html());
+            setContenu(false);
             setItemsAndAnswers(contenu);
             setItemsVisible(true);
             setContenuVisible(false);
@@ -96,22 +95,22 @@ function setQuizz(currentURL) {
     });
 }
 
-function quizzAnglais() {
+function createQuizz(quizzURL) {
     setDebugVisible(false);
-    setQuizz(urlAnglais);
+    setQuizz(quizzURL);
     restartQuizz();
+}
+
+function quizzAnglais() {
+    createQuizz(urlAnglais);
 }
 
 function quizzAllemand() {
-    setDebugVisible(false);
-    setQuizz(urlAllemand);
-    restartQuizz();
+    createQuizz(urlAllemand);
 }
 
 function quizzFrancais() {
-    setDebugVisible(false);
-    setQuizz(urlFrancais);
-    restartQuizz();
+    createQuizz(urlFrancais);
 }
 
 // redémarrage du quizz

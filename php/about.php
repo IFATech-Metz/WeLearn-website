@@ -7,8 +7,10 @@
      // simulation d'une requête SQL
     $myObj->titre = "A propos de WeLearn...";
     $myObj->image = "../img/about.png";
-    $myObj->texte1 = "WeLearn est un super projet de la mort qui tue...";
-    $myObj->texte2 = "Trop de la balle !";
+    $myObj->texte1 = "WeLearn a &eacute;t&eacute; cr&eacute;&eacute; par Rouquaya MOUSS et Thi&eacute;ry SAMPY.";
+    $myObj->texte2 = "WeLearn est un projet r&eacute;alis&eacute; dans le cadre de la formation DevLog suivie à l'IFA de Metz.
+                      <br>L'objectif est de r&eacute;aliser un mini website, tenant sur une seule page,
+                      utilisant javascript et JQuery, et traitant les informations reçues grâce à un fichier de type JSON.";
     $myObj->item1 = "";
     $myObj->item2 = "";
     $myObj->item3 = "";

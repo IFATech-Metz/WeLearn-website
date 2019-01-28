@@ -7,8 +7,10 @@
      // simulation d'une requête SQL
     $myObj->titre = "WeLearn, apprenez les langues en vous amusant...";
     $myObj->image = "../img/home.png";
-    $myObj->texte1 = "WeLearn est un super site qui vous permet d'apprendre une nouvelle langue.";
-    $myObj->texte2 = "Tout en vous amusant !";
+    $myObj->texte1 = "WeLearn est un site qui vous permet d'apprendre une nouvelle langue, de façon ludique.";
+    $myObj->texte2 = "Choisissez une langue, et essayez de replacer chaque mot sur l'image correspondante.
+                      <br>Pour cela, un simple drag & drop suffira : choisissez un mot, cliquez dessus,
+                      et deplacez-le sans relâcher le bouton de la souris jusqu'à la bonne image...";
     $myObj->item1 = "";
     $myObj->item2 = "";
     $myObj->item3 = "";
