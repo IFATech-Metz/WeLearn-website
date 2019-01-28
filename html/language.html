@@ -1,0 +1,103 @@
+<!-- language.html - Copyright (c) 2019 Rouquaya MOUSS, Thiery SAMPY -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- notre fichier css -->
+    <link rel="stylesheet" href="../css/language.css">
+    <!-- le fichier css pour le quizz -->
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <title>
+        Language web site
+    </title>
+
+
+</head>
+
+<body onload="javascript:initWeLearn()">
+    <h1 class="titre">WeLearn</h1>
+
+    <div class="slideshow">
+        <ul>
+            <li><img src="../img/france1.jpg" alt="" width="350" height="200" /></li>
+            <li><img src="../img/france2.jpg" alt="" width="350" height="200" /></li>
+            <li><img src="../img/allemagne1.jpg" alt="" width="350" height="200" /></li>
+            <li><img src="../img/allemagne2.jpg" alt="" width="350" height="200" /></li>
+            <li><img src="../img/dublin1.jpg" alt="" width="350" height="200" /></li>
+        </ul>
+    </div>
+
+    <ul>
+        <li><a onclick="javascript:home()">Home</a></li>
+        <li><a onclick="javascript:about()">About</a></li>
+        <li><a onclick="javascript:quizzFrancais()">French</a></li>
+        <li><a onclick="javascript:quizzAnglais()">English</a></li>
+        <li><a onclick="javascript:quizzAllemand()">Deutch</a></li>
+        <li><a onclick="javascript:debug()">Debug</a></li>
+    </ul>
+
+    <style>
+        #answer1,
+        #answer2,
+        #answer3,
+        #answer4 {
+            width: 100px;
+            height: 25px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px 10px 10px 0;
+            background-color: lightblue;
+        }
+        
+        #drop1,
+        #drop2,
+        #drop3,
+        #drop4 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+
+    <div id="tmp"></div>
+    <div id="contenu"></div>
+
+    <div id="answer1" class="ui-widget-content"></div>
+    <div id="answer2" class="ui-widget-content"></div>
+    <div id="answer3" class="ui-widget-content"></div>
+    <div id="answer4" class="ui-widget-content"></div>
+
+    <div id="drop1" class="ui-widget-header"></div>
+    <div id="drop2" class="ui-widget-header"></div>
+    <div id="drop3" class="ui-widget-header"></div>
+    <div id="drop4" class="ui-widget-header"></div>
+
+    <div id="debug"></div>
+
+</body>
+
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<!-- jquery-ui pour la gestion du quizz -->
+<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+<!-- notre fichier js -->
+<script type="text/javascript" src="../js/language.js"></script>
+
+<!-- javascript d'animation du slideshow -->
+<script type="text/javascript ">
+    $(function() {
+        setInterval(function() {
+            $(".slideshow ul ").animate({
+                marginLeft: -350
+            }, 800, function() {
+                $(this).css({
+                    marginLeft: 0
+                }).find("li:last ").after($(this).find("li:first "));
+            })
+        }, 3500);
+    });
+</script>
+
+</html>
