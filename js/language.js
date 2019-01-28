@@ -85,6 +85,7 @@ function setItemsAndAnswers(donnees) {
 function setQuizz(currentURL) {
     $('#tmp').load(currentURL, function(response, status, xhr) {
         if (status != "error") {
+            // mémorisation du JSON dans la variable contenu
             contenu = JSON.parse($('#tmp').html());
             setItemsAndAnswers(contenu);
             setItemsVisible(true);
@@ -98,16 +99,19 @@ function setQuizz(currentURL) {
 function quizzAnglais() {
     setDebugVisible(false);
     setQuizz(urlAnglais);
+    restartQuizz();
 }
 
 function quizzAllemand() {
     setDebugVisible(false);
     setQuizz(urlAllemand);
+    restartQuizz();
 }
 
 function quizzFrancais() {
     setDebugVisible(false);
     setQuizz(urlFrancais);
+    restartQuizz();
 }
 
 // redémarrage du quizz
@@ -117,7 +121,8 @@ function restartQuizz() {
     // les zones de drop redeviennent vierges
     $("#drop1, #drop2, #drop3, #drop4").removeClass("ui-state-highlight");
     // replacement des réponses possibles à leurs emplacement de départ
-    $("#answer1, #answer2, #answer3, #answer4").css({ "left": "0px" , "top":"0px"});
+    $("#answer1, #answer2, #answer3, #answer4").css({ "left": "0px", "top": "0px" });
+    // initialisation des objets drag & drop
     initDragAndDrop();
 }
 
@@ -135,9 +140,14 @@ function initDragAndDrop() {
                 .html("Exact");
 
             // l'objet dragé est positionné
-            // le centre est aligné avec le centre de l'objet drop $(this)
-            // le top est aligné avec le bottom de l'objet drop $(this)
-            ui.draggable.position({ of: $(this), my: 'center top', at: 'center bottom' });
+            var moveLeft = $(this).offset().left - ui.draggable.offset().left + ($(this).width() - ui.draggable.width()) / 2;
+            var moveTop = $(this).offset().top + $(this).height() - ui.draggable.offset().top;
+
+            ui.draggable.animate({
+                left: "+=" + moveLeft,
+                top: "+=" + moveTop
+            });
+
             ui.draggable.css({
                 //opacity: 0,
                 cursor: 'default'
