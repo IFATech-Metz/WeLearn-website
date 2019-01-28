@@ -7,8 +7,6 @@
      // simulation d'une requête SQL
     $myObj->titre = "Trouve le bon mot en allemand";
     $myObj->image = "../img/flagDE.png";
-    $myObj->texte1 = "";
-    $myObj->texte2 = "";
     $myObj->item1 = "../img/avion.jpg";
     $myObj->item2 = "../img/boussole.jpg";
     $myObj->item3 = "../img/bibliotheque.jpg";

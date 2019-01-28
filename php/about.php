@@ -11,14 +11,6 @@
     $myObj->texte2 = "WeLearn est un projet r&eacute;alis&eacute; dans le cadre de la formation DevLog suivie à l'IFA de Metz.
                       <br>L'objectif est de r&eacute;aliser un mini website, tenant sur une seule page,
                       utilisant javascript et JQuery, et traitant les informations reçues grâce à un fichier de type JSON.";
-    $myObj->item1 = "";
-    $myObj->item2 = "";
-    $myObj->item3 = "";
-    $myObj->item4 = "";
-    $myObj->answer1 = "";
-    $myObj->answer2 = "";
-    $myObj->answer3 = "";
-    $myObj->answer4 = "";
     
      // encodage de l'objet au format JSON
     $myJSON = json_encode($myObj);
